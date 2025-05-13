@@ -9,9 +9,10 @@ import { OAuthService } from "angular-oauth2-oidc";
 export class CallbackComponent implements OnInit {
   constructor(private oauthService: OAuthService, private router: Router) {}
 
-  ngOnInit() {
-    this.oauthService.loadDiscoveryDocumentAndTryLogin().then(() => {
-      this.router.navigate(["/"]); // Redirect to your desired route after successful authentication
-    });
+  async ngOnInit() {
+    const response = await this.oauthService.loadDiscoveryDocumentAndTryLogin();
+    console.log("🚀 ~ CallbackComponent ~ ngOnInit ~ response:", response);
+
+    this.router.navigate(["/"]); // Redirect to your desired route after successful authentication
   }
 }

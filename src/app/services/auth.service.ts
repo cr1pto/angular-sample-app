@@ -11,6 +11,10 @@ export class AuthService {
     this.oauthService.loadDiscoveryDocumentAndTryLogin();
   }
 
+  isLoggedIn() {
+    return this.oauthService.hasValidAccessToken();
+  }
+
   login() {
     this.oauthService.initCodeFlow();
   }

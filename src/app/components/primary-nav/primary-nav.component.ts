@@ -9,13 +9,10 @@ import { Component } from "@angular/core";
 export class PrimaryNavComponent {
   activeRoute = "/";
   onRouterLinkActive(event: Event) {
-    console.log(
-      "🚀 ~ PrimaryNavComponent ~ onRouterLinkActive ~ event:",
-      event
-    );
+    console.log("🚀 ~ PrimaryNavComponent ~ event:", event);
   }
   isActive(path: string) {
-    console.log("🚀 ~ PrimaryNavComponent ~ isActive ~ path:", path);
+    // console.log("🚀 ~ PrimaryNavComponent ~ isActive ~ path:", path);
     return this.activeRoute === path;
   }
 }
