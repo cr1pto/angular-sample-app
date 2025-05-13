@@ -1,18 +1,30 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { OAuthService } from "angular-oauth2-oidc";
 import { authConfig } from "../auth.config";
-import { Injectable } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: "root",
 })
 export class AuthService {
-  constructor(private oauthService: OAuthService) {
+  useHash = false;
+  private readonly router = inject(Router);
+  private oauthService = inject(OAuthService);
+  constructor() {
     this.oauthService.configure(authConfig);
-    this.oauthService.loadDiscoveryDocumentAndTryLogin();
+    this.oauthService.loadDiscoveryDocumentAndTryLogin().then((_) => {
+      if (this.useHash) {
+        this.router.navigate(["/"]);
+      }
+    });
   }
 
   isLoggedIn() {
-    return this.oauthService.hasValidAccessToken();
+    return (
+      this.oauthService.hasValidAccessToken() &&
+      this.oauthService.hasValidIdToken()
+    );
   }
 
   login() {

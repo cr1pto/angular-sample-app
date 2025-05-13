@@ -9,8 +9,8 @@ import { LoginComponent } from "./components/login/login.component";
 export const routes: Routes = [
   { path: "", component: HomeComponent, canActivate: [authGuard] },
   { path: "login", component: LoginComponent },
-  { path: "callback", component: CallbackComponent, canActivate: [authGuard] },
-  { path: "notfound", component: NotFoundComponent, canActivate: [authGuard] },
-  { path: "users/:id", component: UserInfoComponent, canActivate: [authGuard] },
+  { path: "callback", component: CallbackComponent },
+  { path: "notfound", component: NotFoundComponent },
+  { path: "users/:id", component: UserInfoComponent, canActivate: [authGuard] }, // Protect this route with authGuard
   { path: "**", redirectTo: "notfound" }, // Redirect to home for any unknown routes
 ];

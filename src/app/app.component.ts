@@ -28,6 +28,10 @@ export class AppComponent {
   // uses the refresh_token via an AJAX coll to get new tokens.
   useSilentRefreshForCodeFlow = false;
 
+  constructor() {
+    this.configureCodeFlow();
+  }
+
   private configureCodeFlow() {
     this.oauthService.configure(authConfig);
     this.oauthService.loadDiscoveryDocumentAndTryLogin().then((_) => {
