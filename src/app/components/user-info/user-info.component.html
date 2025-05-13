@@ -1,0 +1,9 @@
+<span *ngIf="users$ | async"></span>
+<section>
+  <h1>User Information</h1>
+  <!-- <p *ngIf="user">Name: {{ user.name }}</p>
+  <p *ngIf="user">Email: {{ user.email }}</p>
+  <p *ngIf="user">Phone: {{ user.phone }}</p> -->
+  <p>User ID: {{ selectedId }}</p>
+  <button (click)="logout()">Logout</button>
+</section>
