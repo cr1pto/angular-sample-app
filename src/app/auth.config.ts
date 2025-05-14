@@ -8,7 +8,7 @@ export const authConfig: AuthConfig = {
   clientId: "angular_spa", //make more secure
   responseType: "code",
   dummyClientSecret: "secret",
-  scope: "openid profile verification api1", // Add scopes as needed
+  scope: "openid profile verification offline_access api1", // Add scopes as needed
   // disablePKCE: false,
   checkOrigin: true,
   requireHttps: true,
