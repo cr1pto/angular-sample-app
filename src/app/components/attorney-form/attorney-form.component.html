@@ -1,1 +1,102 @@
-<p>attorney-form works!</p>
+<form #attorneyForm="ngForm" (ngSubmit)="onSubmitAttorneyForm($event)">
+  <label for="attorneyName">Name</label>
+  <input
+    #attorneyName="ngModel"
+    type="text"
+    id="attorneyName"
+    name="attorneyName"
+    required
+    [(ngModel)]="attorney.name"
+  />
+  <div
+    [hidden]="attorneyName.valid || attorneyName.pristine"
+    class="alert alert-danger"
+  >
+    Name is required
+  </div>
+  <label for="attorneyBarNumber">Bar Number</label>
+  <input
+    #attorneyBarNumber="ngModel"
+    type="text"
+    id="attorneyBarNumber"
+    name="attorneyBarNumber"
+    required
+    [(ngModel)]="attorney.barNumber"
+  />
+  <div
+    [hidden]="attorneyBarNumber.valid || attorneyBarNumber.pristine"
+    class="alert alert-danger"
+  >
+    Bar Number is required
+  </div>
+  <label for="attorneyFirmName">Firm Name</label>
+  <input
+    #attorneyFirmName="ngModel"
+    type="text"
+    id="attorneyFirmName"
+    name="attorneyFirmName"
+    required
+    [(ngModel)]="attorney.firmName"
+  />
+  <div
+    [hidden]="attorneyFirmName.valid || attorneyFirmName.pristine"
+    class="alert alert-danger"
+  >
+    Firm Name is required
+  </div>
+  <label for="attorneyPhoneNumber">Phone Number</label>
+  <input
+    #attorneyPhoneNumber="ngModel"
+    type="text"
+    id="attorneyPhoneNumber"
+    name="attorneyPhoneNumber"
+    required
+    [(ngModel)]="attorney.phoneNumber"
+  />
+  <div
+    [hidden]="attorneyPhoneNumber.valid || attorneyPhoneNumber.pristine"
+    class="alert alert-danger"
+  >
+    Phone Number is required
+  </div>
+  <label for="attorneyEmail">Email</label>
+  <input
+    #attorneyEmail="ngModel"
+    type="text"
+    id="attorneyEmail"
+    name="attorneyEmail"
+    required
+    [(ngModel)]="attorney.email"
+  />
+  <div
+    [hidden]="attorneyEmail.valid || attorneyEmail.pristine"
+    class="alert alert-danger"
+  >
+    Email is required
+  </div>
+  <label for="attorneyType">Attorney Type</label>
+  <select
+    #attorneyType="ngModel"
+    type="text"
+    id="attorneyType"
+    name="attorneyType"
+    required
+    [(ngModel)]="attorney.attorneyType"
+  >
+    <option>Defense</option>
+    <option>District</option>
+  </select>
+  <div
+    [hidden]="attorneyType.valid || attorneyType.pristine"
+    class="alert alert-danger"
+  >
+    Attorney Type is required
+  </div>
+  <button
+    type="submit"
+    class="btn btn-success"
+    [disabled]="!attorneyForm.form.valid"
+  >
+    Submit
+  </button>
+</form>

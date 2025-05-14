@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { AttorneyFormComponent } from "../attorney-form/attorney-form.component";
 
 @Component({
   selector: 'app-attorneys',
-  imports: [],
+  imports: [AttorneyFormComponent],
   templateUrl: './attorneys.component.html',
   styleUrl: './attorneys.component.css'
 })
