@@ -1,16 +1,31 @@
 <nav>
   <ul class="horizontal">
-    <li (isActiveChange)="onRouterLinkActive($event)">
-      <a routerLink="/" [class]="{ active: isActive('/') }">Home</a>
+    <li>
+      <a
+        routerLink="/"
+        [class]="{ active: isActive('/') }"
+        (isActiveChange)="onRouterLinkActive($event)"
+        >Home</a
+      >
     </li>
+    @if(!isLoggedIn()) {
     <li>
       <a
         routerLink="/login"
         routerLinkActive="active-link"
         [class]="{ active: isActive('/login') }"
-        (isActiveChange)="onRouterLinkActive($event)"
         >Login</a
       >
+    </li>
+    } @if(isLoggedIn()){
+    <li>
+      <a
+        [class]="{ active: isActive('/welcome') }"
+        routerLink="/welcome"
+        routerLinkActive="active-link"
+        [class]="{ active: isActive('/welcome') }"
+        >Welcome {{ userName }}
+      </a>
     </li>
     <li>
       <a
@@ -18,9 +33,9 @@
         routerLink="/logout"
         routerLinkActive="active-link"
         [class]="{ active: isActive('/logout') }"
-        (isActiveChange)="onRouterLinkActive($event)"
         >Logout</a
       >
     </li>
+    }
   </ul>
 </nav>

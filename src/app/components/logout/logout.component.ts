@@ -2,14 +2,14 @@ import { Component, inject } from "@angular/core";
 import { AuthService } from "../../services/auth.service";
 
 @Component({
-  selector: "app-login",
+  selector: "app-logout",
   imports: [],
-  templateUrl: "./login.component.html",
-  styleUrl: "./login.component.css",
+  templateUrl: "./logout.component.html",
+  styleUrl: "./logout.component.css",
 })
-export class LoginComponent {
+export class LogoutComponent {
   private readonly authService = inject(AuthService);
-  login() {
-    this.authService.login();
+  logout() {
+    this.authService.logout();
   }
 }

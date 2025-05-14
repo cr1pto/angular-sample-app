@@ -3,6 +3,7 @@ import { CommonModule } from "@angular/common";
 import { Component, inject, Input } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { of, switchMap } from "rxjs";
+import { AuthService } from "../../services/auth.service";
 
 @Component({
   selector: "app-user-info",
@@ -14,9 +15,18 @@ export class UserInfoComponent {
   @Input() id = "";
   user: any;
   private readonly route = inject(ActivatedRoute);
+  private readonly authService = inject(AuthService);
   users$: any;
   selectedId!: number;
   constructor() {
+    this.authService
+      .getUserInfo()
+      .then((result) => {
+        console.log("🚀 ~ UserInfoComponent ~ constructor ~ result:", result);
+      })
+      .catch((err) => {
+        console.log("🚀 ~ UserInfoComponent ~ constructor ~ err:", err);
+      });
     // auto subscribed because of async pipe in template
     this.users$ = this.route.paramMap.pipe(
       switchMap((params) => {
@@ -32,6 +42,6 @@ export class UserInfoComponent {
   }
 
   logout() {
-    throw new Error("Method not implemented.");
+    this.authService.logout();
   }
 }

@@ -35,6 +35,13 @@ export class AuthService {
     this.oauthService.logOut();
   }
 
+  getIdentityClaims() {
+    return this.oauthService.getIdentityClaims();
+  }
+  async getUserInfo() {
+    return await this.oauthService.loadUserProfile();
+  }
+
   getAccessToken() {
     return this.oauthService.getAccessToken();
   }

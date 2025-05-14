@@ -5,10 +5,14 @@ import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { UserInfoComponent } from "./components/user-info/user-info.component";
 import { authGuard } from "./auth.guard";
 import { LoginComponent } from "./components/login/login.component";
+import { WelcomeComponent } from "./components/welcome/welcome.component";
+import { LogoutComponent } from "./components/logout/logout.component";
 
 export const routes: Routes = [
   { path: "", component: HomeComponent, canActivate: [authGuard] },
   { path: "login", component: LoginComponent },
+  { path: "logout", component: LogoutComponent },
+  { path: "welcome", component: WelcomeComponent, canActivate: [authGuard] },
   { path: "callback", component: CallbackComponent },
   { path: "notfound", component: NotFoundComponent },
   { path: "users/:id", component: UserInfoComponent, canActivate: [authGuard] }, // Protect this route with authGuard
