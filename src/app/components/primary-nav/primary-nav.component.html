@@ -29,6 +29,42 @@
     </li>
     <li>
       <a
+        [class]="{ active: isActive('/attorneys') }"
+        routerLink="/attorneys"
+        routerLinkActive="active-link"
+        [class]="{ active: isActive('/attorneys') }"
+        >Attorneys
+      </a>
+    </li>
+    <li>
+      <a
+        [class]="{ active: isActive('/judges') }"
+        routerLink="/judges"
+        routerLinkActive="active-link"
+        [class]="{ active: isActive('/judges') }"
+        >Judges
+      </a>
+    </li>
+    <li>
+      <a
+        [class]="{ active: isActive('/defendants') }"
+        routerLink="/defendants"
+        routerLinkActive="active-link"
+        [class]="{ active: isActive('/defendants') }"
+        >Defendants
+      </a>
+    </li>
+    <li>
+      <a
+        [class]="{ active: isActive('/cases') }"
+        routerLink="/cases"
+        routerLinkActive="active-link"
+        [class]="{ active: isActive('/cases') }"
+        >Cases
+      </a>
+    </li>
+    <li>
+      <a
         [class]="{ active: isActive('/logout') }"
         routerLink="/logout"
         routerLinkActive="active-link"
